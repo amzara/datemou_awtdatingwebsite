@@ -1,0 +1,32 @@
+body{
+	background-color: lightblue;
+    font-family:arial;
+}
+
+h1{
+	color:red;
+}
+
+#box{
+    background-color: rgba(255,255,255,0.8);
+	margin: auto;
+    margin-top:10%;
+	width: 500px;
+	padding: 20px;
+	border-radius: 25px;
+    text-align: center;
+    line-height: 1.5;
+    vertical-align: middle;
+}
+
+input[type=submit]{
+
+	padding: 10px;
+	width: 100px;
+	color: white;
+	background-color: #4444ff;
+	border: #8888ff;
+	border-radius: 5px;	
+	border-style: groove;
+	cursor: pointer;
+}

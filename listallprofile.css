@@ -1,0 +1,25 @@
+body {
+	background-color: lightblue;
+	font-family:arial;
+	margin-left: 150px;
+}
+
+table{
+    border:solid black;
+    text-align:center;
+	border-collapse:collapse;
+	width:60%;
+}
+
+th{
+    font-size:20px;
+}
+
+input[type=submit]{
+	color: white;
+	background-color: #4444ff;
+	border: #8888ff;
+	border-radius: 5px;	
+	border-style: groove;
+	cursor: pointer;
+}

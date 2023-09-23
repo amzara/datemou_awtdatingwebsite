@@ -1,0 +1,26 @@
+body {
+	background-color: lightblue;
+	font-family:arial;
+	margin-left: 150px;
+}
+#button{
+	padding: 10px;
+	width: 100px;
+	color: white;
+	background-color: #4444ff;
+	border: #8888ff;
+	border-radius: 5px;	
+	border-style: groove;
+	cursor: pointer;
+	float: right;
+}
+h1{
+	font-size:40px;
+	color:red; 
+	font-weight:bold; 
+	font-style:italic;
+}
+
+.welcome{
+	font-weight: bold;
+}

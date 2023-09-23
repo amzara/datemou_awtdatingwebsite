@@ -1,0 +1,96 @@
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Google Translate</title>
+        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+        <link rel="stylesheet" type="text/css" href="googleTranslate.css">
+      </head>
+<body>
+    <script type="text/javascript">
+
+
+      
+$(function() { //shorthand document.ready function
+
+    var language_option = '';
+    const settings = {
+	"async": false,
+	"crossDomain": true,
+	"url": "https://translo.p.rapidapi.com/get_languages",
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "translo.p.rapidapi.com",
+        "x-rapidapi-key": "39dc5092cfmsh6d681f0d9f7e41dp1efdeejsn5e2fc15ff323"
+	}
+};
+
+$.ajax(settings).done(function (response) {
+    language_option = response.codes;
+});
+
+
+$.each(language_option, function (key, value) {
+  
+   $('#languages').append(`<option value="${key}">
+                                       ${value}
+                                  </option>`);
+
+//append option value to language select since API does not support all language
+
+});
+  
+            
+        $('#translate').on('submit', function(e) { //use on if jQuery 1.7+
+            e.preventDefault();  //prevent form from submitting
+           
+        var text_to_translate = $('#text').val();
+        var language = $('#languages').val();
+        console.log(language);
+        var settings = {
+                    "url": "https://translo.p.rapidapi.com/translate?to="+language+"&text="+text_to_translate+"&from=en&translations=false",
+                    "method": "GET",
+                    "timeout": 0,
+                    "async":false,
+                    
+                    "headers": {
+                        "x-rapidapi-host": "translo.p.rapidapi.com",
+                "x-rapidapi-key": "39dc5092cfmsh6d681f0d9f7e41dp1efdeejsn5e2fc15ff323"
+                    },
+                    };
+                    
+                    $.ajax(settings).done(function (response) {
+                    final_result = response;
+                    $("#translated_text").text("Your translated text: "+final_result.translated_text);
+                    });
+
+                });
+            });
+       
+               
+</script>
+<div id="box">
+    <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Translate_logo.max-500x500.png" height=100px><h1>Google Translate</h1>
+<form method ="post"   id="translate">
+
+    
+     
+      
+<div id="translate">
+  What do you want to say?<br> 
+    <textarea id="text" ></textarea>
+    <br>
+    Translate to :<select id="languages" name="languages" >
+        
+    </select><br>
+    <input type="submit" />
+</form>    
+ <br>
+    <div id='translated_text'></div>
+</div>
+</div>
+</body>
+
+
+</html>

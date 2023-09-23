@@ -1,0 +1,62 @@
+#title{
+	font-size: 25px;
+	margin: 10px;
+	color: white;
+	cursor: default;
+}
+
+#text{
+
+	height: 25px;
+	border-radius: 5px;
+	padding: 4px;
+	border: solid thin #aaa;
+	width: 100%;
+	border:solid lightgrey;
+}
+
+#button{
+
+	padding: 10px;
+	width: 100px;
+	color: white;
+	background-color: #4444ff;
+	border: #8888ff;
+	border-radius: 5px;	
+	border-style: groove;
+	cursor: pointer;
+}
+
+#box{
+
+	background-image: conic-gradient(red, orange, yellow, green, blue, indigo, violet, red);;
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin: auto;
+	width: 300px;
+	padding: 20px;
+	border-radius: 25px;
+}
+
+a:link {
+	color: lightgrey;
+}
+
+  a:hover {
+	color: rgb(4, 255, 180);
+}
+
+
+
+.text{
+	color: white;
+}
+
+a:visited {
+	color: pink;
+  }
+
+  body{
+    background-color: lightblue;
+  
+}

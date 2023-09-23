@@ -1,0 +1,13 @@
+body {
+	background-image: url("https://cdn4.vectorstock.com/i/1000x1000/53/98/romantic-online-date-internet-love-dating-app-vector-23395398.jpg");
+	background-color: #cccccc;
+	font-size:15px;
+	color:rgb(191, 128, 255);
+	font-style:arial;
+}
+h1{
+	font-size:35px; 
+	color:red; 
+	font-weight:bold; 
+	font-style:italic;
+}

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Love Percentage Calculator</title>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <link rel="stylesheet" type="text/css" href="lovecalculator.css">
+</head>
+<script type="text/javascript">
+
+
+var user_name = '';
+$.get("getTheUserName.php", function(data){
+  var mydata= $.parseJSON(data);
+  user_name = mydata.user_name;  // <-----------  access the element
+ 
+});
+   
+    $(function() { //shorthand document.ready function
+        $('#formoid').on('submit', function(e) { //use on if jQuery 1.7+
+            e.preventDefault();  //prevent form from submitting
+
+            var second_name = $('#second_name').val();
+            var result = '';
+              $.ajax({
+                  url: 'checkUserExist.php',
+                  type: 'post',
+                  async: false,
+                  data: { "username":second_name },
+                  success: function(response) {
+                   
+                  result = response;
+                }                 
+              });
+
+              console.log(result);
+              if(result == "true"){
+              var final_result = null;
+              var settings = {
+                    "url": "https://love-calculator.p.rapidapi.com/getPercentage?fname="+user_name+"&sname="+second_name,
+                    "method": "GET",
+                    "timeout": 0,
+                    "async":false,
+                    
+                    "headers": {
+                      "x-rapidapi-key": "bb5b4fbbfcmshe9dfb7e1c2612d2p13a33ajsn6731067fec34"
+                    },
+                  };
+                  
+                  $.ajax(settings).done(function (response) {
+                    final_result = response;
+                    $("#percentage").text("Percentage:"+final_result.percentage);
+                    $("#result").text("Your result:"+final_result.result);
+                  });
+              }else{
+                alert("Username does not exist");
+
+              }
+            console.log(final_result);
+
+
+    
+           
+        });
+    });
+    
+   
+   
+    </script>
+<body>
+  <div id="box">
+  <h1>❤ Love Calculator ❤</h1>
+  <p>All you have to do is enter the other person's username and our API will calculate it for you!</p>
+  <form id="formoid"  title="">
+        <div>
+          <label class="title">Username</label>
+          <input type="text" id="second_name" >
+        </div>
+        <div><br>
+          <input type="submit" id="submitButton" name="submitButton" value="Submit">
+        </div>
+      </form><br>
+      <div id="percentage"></div>
+      <br>
+      <div id="result"></div>
+      </form>
+ </div>
+
+ 
+</body>
+</html>
